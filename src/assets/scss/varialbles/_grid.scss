@@ -1,0 +1,31 @@
+$breakpoints: (
+  pc: (
+    min: 1367px,
+    width: 1400px,
+  ),
+  large: (
+    min: 1025px,
+    max: 1366px,
+    width: 960px,
+    gap: 5px
+  ),
+  tablet: (
+    min: 993px,
+    max: 1024px,
+    width: 960px,
+    gap: 50px
+  ),
+  small_tablet: (
+    min: 577px,
+    max: 992px,
+    width: 540px,
+    gap: 20px
+  ),
+  mobile: (
+    max: 576px,
+    width: 320px,
+    gap: 5px
+  ),
+);
+
+

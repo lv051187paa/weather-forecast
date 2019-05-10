@@ -1,0 +1,7 @@
+@function get_color($hex){
+  @return map-get($color, $hex);
+}
+
+@function get_bg_color($color_type){
+  @return map-get($colorbg, $color_type);
+}

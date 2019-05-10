@@ -1,0 +1,15 @@
+@mixin center_x($correct: '0px') {
+  left: calc(50% + #{$correct});
+  transform: translateX(-50%);
+}
+
+@mixin center_y($correct: '0px') {
+  top: calc(50% + #{$correct});
+  transform: translateY(-50%);
+}
+
+@mixin center_total($correctX: '0px', $correctY: '0px') {
+    top: calc(50% + #{$correctY});
+    left: calc(50% + #{$correctX});
+    transform: translate(-50%, -50%);
+  }

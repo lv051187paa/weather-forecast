@@ -1,0 +1,5 @@
+@mixin set_media($mode){
+  @media screen and (max-width: map-deep-get($breakpoints, #{$mode}, max)){
+    @content
+  }
+}

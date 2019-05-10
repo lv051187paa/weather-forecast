@@ -1,0 +1,21 @@
+.container {
+  max-width: map-deep-get($breakpoints, pc, width);
+  margin: auto;
+  padding: 0 map-deep-get($breakpoints, pc, gap);
+}
+
+@each $breakpoint, $params in $breakpoints {
+  $minWidth: map-deep-get($breakpoints, $breakpoint, min);
+  $container: map-deep-get($breakpoints, $breakpoint, width);
+  $maxWidth: map-deep-get($breakpoints, $breakpoint, max);
+  @media screen and (max-width: $maxWidth) {
+    .container {
+      max-width: $container;
+      margin: auto;
+      padding: 0 map-deep-get($breakpoints, $breakpoint, gap);
+      @if( $breakpoint == 'mobile'){
+        text-align: center;
+      }
+    }
+  }
+}
