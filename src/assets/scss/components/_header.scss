@@ -1,0 +1,16 @@
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: get_bg_color(headerBG);
+    padding: 10px 20px;
+    
+    & h1{
+        font-size: 18px;
+        color: get_color(header);
+    }
+
+    & i{
+        color: get_color(header);
+    }
+}

@@ -1,18 +1,11 @@
 $color: (
-    title: #5D5D5D,
-    accent: #9E181A,
-    text: #707070,
-    button: #ffffff,
-    footerMenu: #C7C7C7,
-    input: #A6A6A6,
-    sliderDots: #C5C5C5,
+    date: #A8A8A8,
+    temprature: #ffffff,
+    header: #ffffff,
+    border: #F8F8F8
 );
 
 $colorBg: (
-    footerBG: #32313B,
-    screenBG: #ffffff,
-    screenOddBG: #F7F7F7,
-    coockiesBG: rgba(35,35,35, .98s)
+    headerBG: #3E3E3E
 );
 
-$border: 0px 5px 10px 0px rgba(0,0,0,0.1);

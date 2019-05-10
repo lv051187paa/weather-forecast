@@ -3,5 +3,5 @@
 }
 
 @function get_bg_color($color_type){
-  @return map-get($colorbg, $color_type);
+  @return map-get($colorBg, $color_type);
 }
