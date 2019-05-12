@@ -1,15 +1,19 @@
 import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-
+import {reducer} from '../reducers';
 import enhance from './enhance';
+import {rootSaga} from '../sagas';
 
 const sagaMiddleware = createSagaMiddleware();
 
-export default function configureStore(initialState = {}) {
+export default function configureStore() {
+  const initialState = {
+    browserGeo: {}
+  }
   const enhancers = enhance(applyMiddleware(sagaMiddleware));
-  const store = createStore(() => {}, initialState, enhancers);
+  const store = createStore(reducer, initialState, enhancers);
 
-//   sagaMiddleware.run();
+  sagaMiddleware.run(rootSaga);
 
   return store;
 }

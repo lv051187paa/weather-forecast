@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
-    <nav class="menu">
+    <nav className="menu">
       <Link to="/">
         <h1>The best Weather Forecast we ever made</h1>
       </Link>
       <Link to="/settings">
-        <i class="fas fa-cog" />
+        <i className="fas fa-cog" />
       </Link>
     </nav>
   );

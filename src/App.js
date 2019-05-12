@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Router, Switch, Route } from 'react-router';
 import { createBrowserHistory } from 'history';
 import { Home, Settings, NotFound } from './layouts';
 import Header from './components/Header';
+import { getGeo } from "./actions";
+import { connect } from "react-redux";
 
 const history = createBrowserHistory();
 
-const App = () => {
+const App = ({fetchGeo}) => {
+  useEffect(() => {
+    fetchGeo()
+  }, [fetchGeo]);
   return (
     <>
       <Router history={history}>
@@ -21,4 +26,12 @@ const App = () => {
   );
 };
 
-export default App;
+const mapStateToProps = state => ({
+
+})
+
+const mapDispatchToProps = dispatch => ({
+  fetchGeo: () => dispatch(getGeo())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

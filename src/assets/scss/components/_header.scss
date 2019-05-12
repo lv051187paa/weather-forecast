@@ -4,6 +4,10 @@
     align-items: center;
     background: get_bg_color(headerBG);
     padding: 10px 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
     
     & h1{
         font-size: 18px;
