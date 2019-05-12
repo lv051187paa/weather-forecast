@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchForecast, changeUnits } from '../actions';
+import { fetchForecast, changeUnits } from '../actions/forecast/actionCreators';
 import DayForecast from '../components/DayForecast';
 import Preloader from '../components/Preloader';
 
@@ -14,7 +15,7 @@ const Home = ({ geo, getForecast, forecast, units, isFetching }) => {
       lon,
       u: units
     });
-  }, [getForecast, lat, lon, units])
+  }, [getForecast, lat, lon, units, isFetching])
 
   return (
     <div className="forecast">
@@ -31,6 +32,21 @@ const Home = ({ geo, getForecast, forecast, units, isFetching }) => {
     </div>
   );
 
+};
+
+Home.propTypes = {
+  getForecast: PropTypes.func.isRequired,
+  geo: PropTypes.object,
+  forecast: PropTypes.object,
+  units: PropTypes.string,
+  isFetching: PropTypes.bool
+};
+
+Home.defaultProps = {
+  geo: {},
+  forecast: {},
+  units: 'c',
+  isFetching: true
 };
 
 const mapStateToProps = state => ({

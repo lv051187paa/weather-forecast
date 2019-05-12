@@ -1,5 +1,9 @@
 import { call, put, takeEvery, all } from 'redux-saga/effects';
-import { GET_BROWSER_GEO, setGeo, FETCH_FORECAST, storeForecast, successFetch, fetchError } from './../actions/index';
+import { GET_BROWSER_GEO } from './../actions/browser/actions';
+import { FETCH_FORECAST } from './../actions/forecast/actions';
+import { setGeo } from './../actions/browser/actionCreators';
+import { storeForecast } from './../actions/forecast/actionCreators';
+import { successFetch, fetchError } from './../actions/fetchResults/actionCreators';
 import { api } from '../api';
 
 const getGeo = () => new Promise((resolve, reject) => {

@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { Router, Switch, Route } from 'react-router';
+import PropTypes from 'prop-types';
 import { createBrowserHistory } from 'history';
 import { Home, Settings, NotFound } from './layouts';
 import Header from './components/Header';
-import { getGeo } from "./actions";
+import { getGeo } from "./actions/browser/actionCreators";
 import { connect } from "react-redux";
 import ErrorComponent from './components/ErrorComponent';
 
@@ -38,6 +39,19 @@ const App = ({ fetchGeo, geo, geoError, forecastError }) => {
       </Router>
     </>
   );
+};
+
+App.propTypes = {
+  fetchGeo: PropTypes.func.isRequired,
+  geo: PropTypes.object,
+  geoError: PropTypes.string,
+  forecastError: PropTypes.string
+};
+
+App.defaultProps = {
+  geo: {},
+  geoError: '',
+  forecastError: ''
 };
 
 const mapStateToProps = state => ({

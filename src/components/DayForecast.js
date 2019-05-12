@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import { formatDate, getDay } from '../utils';
+import PropTypes from "prop-types";
 
 const DayForecast = ({ forecast, units }) => {
   return (
@@ -15,6 +16,15 @@ const DayForecast = ({ forecast, units }) => {
       </div>
     </div>
   );
+};
+
+DayForecast.propTypes = {
+  forecast: PropTypes.object.isRequired,
+  units: PropTypes.string,
+};
+
+DayForecast.defaultProps = {
+  units: 'c'
 };
 
 const mapStateToProps = state => ({

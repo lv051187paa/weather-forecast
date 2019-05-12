@@ -1,4 +1,5 @@
-import { STORE_FORECAST, CHANGE_UNITS, SUCCESS_FETCH, FETCH_ERROR } from './../actions/index';
+import { STORE_FORECAST, CHANGE_UNITS, } from './../actions/forecast/actions';
+import { SUCCESS_FETCH, FETCH_ERROR } from './../actions/fetchResults/actions';
 
 const forecastState = {
   units: 'c',

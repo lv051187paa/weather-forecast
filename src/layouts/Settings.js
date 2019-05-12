@@ -1,7 +1,8 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { changeUnits, clearLocation } from '../actions';
+import { changeUnits } from '../actions/forecast/actionCreators';
+import { clearLocation } from '../actions/browser/actionCreators';
 
 const Settings = ({ units, toggleUnits, resetGeo }) => {
   return (
@@ -20,6 +21,16 @@ const Settings = ({ units, toggleUnits, resetGeo }) => {
     </div>
   )
 }
+
+Settings.propTypes = {
+  toggleUnits: PropTypes.func.isRequired,
+  resetGeo: PropTypes.func.isRequired,
+  units: PropTypes.string,
+};
+
+Settings.defaultProps = {
+  units: 'c'
+};
 
 const mapStateToProps = state => ({
   units: state.forecast.units

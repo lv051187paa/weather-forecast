@@ -38,11 +38,12 @@ export const api = (queryParams) => {
     return [k + '="' + oauth[k] + '"'];
   }).join(',');
   const URLparams = new URLSearchParams(Object.entries(query))
-
-  return new Promise((resolve => resolve(axios.get(`${url}?${URLparams.toString()}`, {
+  const fetchParams = {
     headers: {
       'Authorization': auth_header,
       'X-Yahoo-App-Id': app_id
     }
-  })))).then(res => res.data)
+  }
+
+  return new Promise((resolve => resolve(axios.get(`${url}?${URLparams.toString()}`, fetchParams)))).then(res => res.data)
 }
