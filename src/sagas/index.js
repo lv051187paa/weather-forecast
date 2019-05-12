@@ -1,5 +1,5 @@
 import { call, put, takeEvery, all } from 'redux-saga/effects';
-import { GET_BROWSER_GEO, setGeo, FETCH_FORECAST, storeForecast } from './../actions/index';
+import { GET_BROWSER_GEO, setGeo, FETCH_FORECAST, storeForecast, successFetch, fetchError } from './../actions/index';
 import { api } from '../api';
 
 const getGeo = () => new Promise((resolve, reject) => {
@@ -10,14 +10,25 @@ const getGeo = () => new Promise((resolve, reject) => {
 })
 
 function* getBrowserGeo() {
-  const positions = yield call(getGeo);
-  const {latitude, longitude} = positions.coords;
-  yield put(setGeo({lat: latitude, lon: longitude}))
+  try{
+    const positions = yield call(getGeo);
+    const {latitude, longitude} = positions.coords;
+    yield put(setGeo({lat: latitude, lon: longitude}))
+  } catch (e) {
+    yield put(fetchError(e.message));
+  }
+
 }
 
 function* getForecast(action) {
-  const forecast = yield call(api, action.payload);
-  yield put(storeForecast(forecast))
+  try{
+    const forecast = yield call(api, action.payload);
+    yield put(storeForecast(forecast));
+    yield put(successFetch())
+  } catch (e) {
+    yield put(fetchError('Some error while getting forecast'));
+  }
+
 }
 
 function* sagaWather() {

@@ -1,0 +1,7 @@
+.error-block{
+  position: absolute;
+  @include center_total();
+  font-size: 32px;
+  font-weight: bold;
+  color: red;
+}

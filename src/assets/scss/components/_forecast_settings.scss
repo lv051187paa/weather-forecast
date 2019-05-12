@@ -1,0 +1,49 @@
+.settings{
+  position: absolute;
+  @include center_total();
+  text-align: center;
+
+  &-title{
+
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  &-units{
+    display: flex;
+    border-radius: $border_radius;
+    border: 1px solid get_color(btnBorder);
+    overflow: hidden;
+
+    & div{
+      padding: 10px;
+      font-size: 32px;
+      font-weight: bold;
+      text-transform: uppercase;
+      width: 50%;
+      text-align: center;
+      cursor: pointer;
+
+      &.active{
+        background: get_bg_color(activeBG);
+        color: #fff;
+      }
+    }
+  }
+
+  &-reset{
+    background: get_bg_color(button);
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px 15px;
+    border-radius: $border_radius - 5px;
+    cursor: pointer;
+  }
+
+  &-block{
+    margin-bottom: 20px;
+  }
+}

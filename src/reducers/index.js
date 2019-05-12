@@ -1,12 +1,8 @@
-import { SET_GEO, STORE_FORECAST } from './../actions/index';
+import { combineReducers } from 'redux'
+import {browserGeo} from "./browserReducer";
+import {forecast} from "./forecastReducer";
 
-export const reducer = (state, { type, payload }) => {
-  switch (type) {
-    case SET_GEO:
-      return {...state, browserGeo: payload}
-    case STORE_FORECAST:
-      return {...state, forecast: payload}
-    default:
-      return state
-  }
-}
+export const reducer = combineReducers({
+  browserGeo,
+  forecast
+})

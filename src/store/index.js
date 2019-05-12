@@ -7,12 +7,9 @@ import {rootSaga} from '../sagas';
 const sagaMiddleware = createSagaMiddleware();
 
 export default function configureStore() {
-  const initialState = {
-    browserGeo: {},
-    forecast: {},
-  }
+
   const enhancers = enhance(applyMiddleware(sagaMiddleware));
-  const store = createStore(reducer, initialState, enhancers);
+  const store = createStore(reducer, enhancers);
 
   sagaMiddleware.run(rootSaga);
 
