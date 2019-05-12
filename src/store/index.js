@@ -8,7 +8,8 @@ const sagaMiddleware = createSagaMiddleware();
 
 export default function configureStore() {
   const initialState = {
-    browserGeo: {}
+    browserGeo: {},
+    forecast: {},
   }
   const enhancers = enhance(applyMiddleware(sagaMiddleware));
   const store = createStore(reducer, initialState, enhancers);
